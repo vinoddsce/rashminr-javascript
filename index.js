@@ -71,15 +71,97 @@
 
 
 
-console.log(square());
-function square(n = 2) {
-    return n * n;
-}
+// console.log(square());
+// function square(n = 2) {
+//     return n * n;
+// }
 
 
-console.log(qube(10));
-var qube = function (n) {
-    return n * n * n;
-}
+// console.log(qube(10));
+// var qube = function (n) {
+//     return n * n * n;
+// }
 // index.js:80 Uncaught TypeError: qube is not a function
 //     at index.js:80
+
+
+
+// function sayHi() {
+//     console.log("Hi");
+// }
+
+// console.log(typeof sayHi);
+
+
+// var holder;
+// holder = 100;
+// // var result = typeof holder;
+
+// holder = function () {
+// }
+
+// function second() {
+//     console.log("Second Fun !!!");
+// }
+
+// var secRef = second;
+// second();
+// secRef();
+
+// holder = true;
+
+// console.log(typeof holder);
+
+
+// var john = {
+//     name: 'John',
+//     yearOfBirth: 1990,
+//     calculateAge: function () {
+//         console.log(this);
+//         console.log(2016 - this.yearOfBirth);
+//         // function innerFunction() {
+//         //     console.log(this);
+//         // }
+//         // innerFunction();
+//     }
+// }
+
+// john.calculateAge();
+
+// var mike = {
+//     name: 'Mike',
+//     yearOfBirth: 1984
+// };
+
+
+// mike.calculateAge = john.calculateAge;
+// mike.calculateAge();
+
+
+// var abc;
+// abc = 100;
+// console.log(abc);
+
+
+// var obj = {};
+// console.log(typeof (obj));
+
+// var result = (1 === "1");
+// // console.log("Result: ", result);
+
+
+// obj = null;
+// console.log(typeof (obj));
+
+var xyz;
+console.log(typeof (xyz));
+console.log(typeof (typeof (xyz)));
+// checkType(xyz);
+
+function checkType(x) {
+    if (typeof (x) === 'undefined') {
+        console.log("X is not defined");
+    } else {
+        console.log("Defined");
+    }
+}
