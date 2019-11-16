@@ -210,9 +210,6 @@
 
 var title = "JS Session";
 
-var obj = {}
-// console.log(obj);
-
 var firstName = "Guest";
 var lastName = "User";
 
@@ -222,36 +219,84 @@ var vinod = {
     yearOfBirth: 1989,
     job: 'Teacher',
     displayFullname: function () {
-        // console.log(this);
         console.log(this.firstName + ' ' + this.lastName)
     }
 }
 
-vinod.displayFullname();
-window.displayName = vinod.displayFullname;
-displayName();
+function displayName() {
+    console.log(this.firstName + ' ' + this.lastName)
+}
 
-// console.log(vinod.aaa);
-// console.log(vinod['aaa']);
+// vinod.displayFullname();
+// displayName();
 
-// if (vinod['aaa'] === undefined) {
-//     console.log("Doesn't Exist ");
+
+
+
+// Higher Order Functions ...
+
+function display(fn) {
+    if (typeof (fn) === 'function') {
+        fn();
+    } else {
+        console.log('Not a function !!!! ');
+    }
+}
+
+function printFirstName() {
+    console.log('First Name: ', this.firstName);
+}
+
+function printLastName() {
+    console.log('Last Name: ', this.lastName);
+}
+
+// display(printFirstName);
+// display(printLastName);
+// display("100");
+
+
+
+
+// function mathOperations() {
+//     return function square() {
+//         console.log("It's Square Function");
+//     }
 // }
 
-// console.log(title);
-// console.log(window.title);
+function mathOperations(type) {
+
+    var PI = 3.14;
+
+    if (type === 'sq') {
+        return function (n) {
+            console.log("Square of ", n, ", is: ", (n * n));
+        }
+    }
+    if (type === 'cu') {
+        return function (n) {
+            console.log("Cube of ", n, ", is: ", (n * n * n));
+        }
+    }
+
+    if (type === 'pi') {
+        return function () {
+            console.log("PI value is", PI);
+        }
+    }
+}
+
+var result = mathOperations('sq');
+// console.log("Result: ", result);
+result(10);
+
+result = mathOperations('cu');
+// console.log("Result: ", result);
+result(10);
 
 
-// console.log(this.title);
 
+// Clousers 
 
-// console.log([]);
-// // O/P: []
-// console.log(+[]);
-// // O/P: 0
-// console.log(![]);
-// // O/P: false
-// console.log(+![]);
-// // O/P: 0
-// console.log(!+[]);
-// O/P: true
+result = mathOperations('pi');
+result();
