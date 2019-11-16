@@ -153,15 +153,105 @@
 // obj = null;
 // console.log(typeof (obj));
 
-var xyz;
-console.log(typeof (xyz));
-console.log(typeof (typeof (xyz)));
-// checkType(xyz);
+// var xyz;
+// console.log(typeof (xyz));
+// console.log(typeof (typeof (xyz)));
+// // checkType(xyz);
 
-function checkType(x) {
-    if (typeof (x) === 'undefined') {
-        console.log("X is not defined");
-    } else {
-        console.log("Defined");
+// function checkType(x) {
+//     if (typeof (x) === 'undefined') {
+//         console.log("X is not defined");
+//     } else {
+//         console.log("Defined");
+//     }
+// }
+
+// console.log(NaN === NaN);
+
+// var n1 = new Number(NaN);
+// var n2 = new Number(NaN);
+// console.log("n1: ", n1.toString());
+// delete (n2);
+// console.log("n2: ", n2.toString());
+// console.log((0 === ![]));
+// console.log(([] == ![]));
+// console.log(([] == []));
+// console.log(([] === ![]));
+// console.log(([] === []));
+// console.log(Number([]));
+// console.log(Boolean([]));
+
+
+
+
+// function welcome(name) {
+
+//     if (name !== undefined) {
+//         console.log("Welcome name, ", name);
+//     } else {
+//         console.log("Welcome guest, ", guest);
+//     }
+
+// }
+// var guest = "Guest";
+// welcome();
+
+
+
+
+// Object
+
+// var obj = {
+//     key1: value1,
+//     key2: value2
+// }
+// console.log(typeof obj);
+
+
+var title = "JS Session";
+
+var obj = {}
+// console.log(obj);
+
+var firstName = "Guest";
+var lastName = "User";
+
+var vinod = {
+    firstName: 'Vinod',
+    lastName: 'Kumar',
+    yearOfBirth: 1989,
+    job: 'Teacher',
+    displayFullname: function () {
+        // console.log(this);
+        console.log(this.firstName + ' ' + this.lastName)
     }
 }
+
+vinod.displayFullname();
+window.displayName = vinod.displayFullname;
+displayName();
+
+// console.log(vinod.aaa);
+// console.log(vinod['aaa']);
+
+// if (vinod['aaa'] === undefined) {
+//     console.log("Doesn't Exist ");
+// }
+
+// console.log(title);
+// console.log(window.title);
+
+
+// console.log(this.title);
+
+
+// console.log([]);
+// // O/P: []
+// console.log(+[]);
+// // O/P: 0
+// console.log(![]);
+// // O/P: false
+// console.log(+![]);
+// // O/P: 0
+// console.log(!+[]);
+// O/P: true
