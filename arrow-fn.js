@@ -1,97 +1,73 @@
-// Arrow Function
+
+// use 'strict';
+
+function first() {
+    a = 100;
+}
+console.log(window.a);
 
 
-// Syntax
-var name = () => {
-    // statements
+
+var Person = function () {
 }
 
+var p1 = new Person();
+var obj1 = {}
+var obj2 = new Object();
+var obj3 = Object.assign({});
 
-function sayHi() {
-    // console.log("Hi");
+console.log("p1: ", p1);
+console.log("obj1: ", obj1);
+console.log("obj2: ", obj2);
+console.log("obj3: ", obj3);
+
+
+
+var Person = function (name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
 }
-// sayHi();
-// console.log(sayHi());
 
-var sayHiArr = () => {
-    // console.log("Hi Arrow");
-}
-// sayHiArr();
-// console.log(sayHiArr());
+Person.prototype.calculateAge = function () {
+    console.log(2016 - this.yearOfBirth);
+};
 
 
 
-// var square = (n) => {
-//     return n * n;
-// }
+var john = new Person('John', 1990, 'teacher');
+var jane = new Person('Jane', 1969, 'designer');
+var mark = new Person('Mark', 1948, 'retired');
 
-// var square = (n) => (n * n);
-var square = n => n * n;
-// console.log(square(10));
+john.calculateAge();
+jane.calculateAge();
+mark.calculateAge();
 
-var yearOfBirth = 2000;
+Person.prototype.lastName = 'Smith';
 
-// var getYearOfBirth = () => {
-//     // this.yearOfBirth;
-//     console.log(this);
-// }
-// getYearOfBirth();
+console.log(john.lastName);
+console.log(jane.lastName);
+console.log(mark.lastName);
+
+
+
 
 var vinod = {
+
     firstName: 'Vinod',
     lastName: 'Kumar',
     yearOfBirth: 1990,
     isMarried: false,
     job: 'Teacher',
+
     calculateAge: function () {
-        var getAge = (currentYear) => currentYear - this.yearOfBirth;
-        console.log("Age of ", this.firstName, " is ", getAge(2019));
+
+        function getAge() {
+            console.log("getAge()", window.vinod.job);
+        }
+        getAge();
+
+        console.log("Age of ", this.firstName, " is ", (2019 - this.yearOfBirth));
     }
 }
 
-var kumar = {
-    firstName: 'Vinod1',
-    lastName: 'Kumar1',
-    yearOfBirth: 1999,
-    isMarried: false,
-    job: 'Student',
-}
-
-kumar.calculateAge = vinod.calculateAge;
-
-// console.log(vinod);
-// console.log(kumar.calculateAge());
-// kumar.calculateAge()
-
-var obj = {};
-console.log(obj);
-
-var Person = function (fName, lName, yearOfBirth, isMarried, job) {
-    this.firstName = fName;
-    this.lastName = lName;
-    this.yearOfBirth = yearOfBirth;
-    this.isMarried = isMarried;
-    this.job = job;
-    this.displayFirstName = function () {
-        console.log("First Name: ", this.firstName);
-    };
-    // this.calculateAge = function () {
-    //     var getAge = (currentYear) => currentYear - this.yearOfBirth;
-    //     console.log("Age of ", this.firstName, " is ", getAge(2019));
-    // }
-}
-
-Person.prototype.calculateAge = function () {
-    var getAge = (currentYear) => currentYear - this.yearOfBirth;
-    console.log("Age of ", this.firstName, " is ", getAge(2019));
-}
-
-
-var p1 = new Person('Vinod', 'Kumar', 1990, false, 'Teacher');
-var p2 = new Person('Vinod-2', 'Kumar-2', 1999, false, 'Teacher');
-
-console.log(p1);
-console.log(p2);
-
-
-p1.calculateAge(2019);
