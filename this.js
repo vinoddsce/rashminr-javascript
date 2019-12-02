@@ -1,59 +1,42 @@
-// var x = 1;
-
-// var x = 1;
-
-// if (true) {
-//     var x = 2;
-//     console.log(x); // expected output: 2
-// }
 
 
-// var x = 1;
-// function foo() {
-//     var x = 100;
-//     console.log(x);
+var s = new String("JavaScript");
+console.dir(s);
 
-//     function bar() {
-//         var y = 200;
-//         var x = 111;
-//         console.log(y);
-//         console.log("x from bar(): ", x);
-//         console.log("this from bar(): ", this);
-//     }
+var obj1 = new Object();
+console.log("Object-1: ", obj1);
 
-//     bar();
+var obj2 = {};
+console.log("Object-2: ", obj2);
 
-// }
-
-// foo();
-// console.log(window.x);
-
-
-var yearOfBirth = 2000;
-
-var vinod = {
-    firstName: 'Vinod',
-    lastName: 'Kumar',
-    yearOfBirth: 1989,
-    job: 'Teacher',
-    displayFullname: function () {
-        console.log(this.firstName + ' ' + this.lastName);
-    },
-
-    calculateAge: function (currentYear) {
-
-        // function getAge(year) {
-        //     return year - this.yearOfBirth;
-        // }
-
-        // var getAge = (year) => {
-        //     return year - this.yearOfBirth;
-        // }
-
-        var getAge = (year) => year - this.yearOfBirth;
-
-        console.log("Age Is: ", getAge(currentYear));
-    }
+var Person = function () {
+    // this.toString = function () {
+    //     console.log("This Is Overridden toString()");
+    //     return;
+    // }
 }
 
-vinod.calculateAge(2019);
+function Human(firstName, lastName) {
+    this.firstName = firstName,
+        this.lastName = lastName,
+        this.fullName = function () {
+            return this.firstName + " " + this.lastName;
+        }
+    // this.toString = function () {
+    //     console.log("This Is Overridden toString()");
+    //     return;
+    // }
+}
+
+Human.prototype.toString = function () {
+    console.log("This Is Overridden toString()");
+    return;
+}
+
+var person1 = new Human("Virat", "Kohli");
+person1.__proto__.age = 12;
+console.log(person1.__proto__);
+// console.log(Human.prototype);
+
+var person2 = new Human("Vinod", "Kumar");
+console.log(person2);
