@@ -22,10 +22,6 @@ function Human(firstName, lastName) {
         this.fullName = function () {
             return this.firstName + " " + this.lastName;
         }
-    // this.toString = function () {
-    //     console.log("This Is Overridden toString()");
-    //     return;
-    // }
 }
 
 Human.prototype.toString = function () {
@@ -34,9 +30,15 @@ Human.prototype.toString = function () {
 }
 
 var person1 = new Human("Virat", "Kohli");
-person1.__proto__.age = 12;
+
+
 console.log(person1.__proto__);
 // console.log(Human.prototype);
 
 var person2 = new Human("Vinod", "Kumar");
 console.log(person2);
+
+
+
+
+

@@ -87,8 +87,10 @@ console.log(numbers);
 console.log(temp);
 
 var callback = function (value, index) {
-    console.log(`Index: ${index} - Value: ${value}`);
+    // console.log(`Index: ${index} - Value: ${value}`);
+    // console.log("value >= 0: ", (value >= 0));
     if (value >= 0) {
+        console.log("Returning: ", value);
         return value;
     }
 }
