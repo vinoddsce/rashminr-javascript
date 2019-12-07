@@ -159,8 +159,8 @@ var john = {
     }
 };
 
-john.presentation('formal', 'morning');
-john.presentation('friendly', 'day')
+// john.presentation('formal', 'morning');
+// john.presentation('friendly', 'day')
 
 var emily = {
     name: 'Emily',
@@ -168,12 +168,12 @@ var emily = {
     job: 'designer'
 };
 
-
 // console.log(john.presentation.bind(emily));
-john.presentation.bind(emily)('formal', 'morning');
+// john.presentation.bind(emily)('formal', 'morning');
 
 
-
+john.presentation.call(emily, 'formal', 'morning');
+john.presentation.apply(emily, ['friendly', 'day']);
 
 
 // Shape - superclass
@@ -197,15 +197,21 @@ function Rectangle() {
 // console.log('rect: ', rect);
 // subclass extends superclass
 Rectangle.prototype = Object.create(Shape.prototype);
-// console.log('rect: ', rect);
+Rectangle.prototype.constructor = Rectangle;
+var rect = new Rectangle();
+console.log('rect: ', rect);
 
 //If you don't set Object.prototype.constructor to Rectangle,
 //it will take prototype.constructor of Shape (parent).
 //To avoid that, we set the prototype.constructor to Rectangle (child).
-Rectangle.prototype.constructor = Rectangle;
+// Rectangle.prototype.constructor = Rectangle;
 // console.log('rect: ', rect.move(100, 100));
+// var rect = new Rectangle();
+// console.log('rect: ', rect);
 
-var rect = new Rectangle();
+
+
+// var rect = new Rectangle();
 // console.log('rect: ', rect);
 // console.log('Is rect an instance of Rectangle?', rect instanceof Rectangle); // true
 // console.log('Is rect an instance of Shape?', rect instanceof Shape); // true
@@ -219,11 +225,14 @@ function Person(first, last, age, gender, interests) {
     this.age = age;
     this.gender = gender;
     this.interests = interests;
+    this.greeting = function () {
+        alert('Hi! I\'m ' + this.name.first + '.');
+    }
 };
 
-Person.prototype.greeting = function () {
-    alert('Hi! I\'m ' + this.name.first + '.');
-};
+// Person.prototype.greeting = function () {
+//     alert('Hi! I\'m ' + this.name.first + '.');
+// };
 
 function Teacher(first, last, age, gender, interests, subject) {
     Person.call(this, first, last, age, gender, interests);
@@ -231,5 +240,18 @@ function Teacher(first, last, age, gender, interests, subject) {
 }
 
 Teacher.prototype = Object.create(Person.prototype);
+Teacher.prototype.constructor = Teacher;
 let teacher1 = new Teacher('Dave', 'Griffiths', 31, 'male', ['football', 'cookery'], 'mathematics');
-// console.log("Teacher: ", teacher1);
+console.log("Teacher: ", teacher1);
+
+
+
+
+var add = '11' + true;
+var sub = '11' - false;
+
+console.log(add);
+console.log(sub);
+
+// var sub = '11' - 'A';
+// console.log(sub);
