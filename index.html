@@ -6,30 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
-
-
-
 </head>
 
 <body>
-
-
     <div>
-
-        <p id="name">Welcome to JS !!!!</p>
-
+        <p id="data">Welcome to JS !!!!</p>
+        <button onclick="loadData(this)">Load Data</button>
     </div>
+
+    <script type="text/javascript">
+        function loadData(event) {
+            var httpRequest = new XMLHttpRequest();
+            console.log(httpRequest);
+
+            httpRequest.onreadystatechange = function () {
+                console.log(this.responseText);
+                // var result = JSON.parse(this.responseText);
+                document.getElementById('data').innerHTML = this.responseText;
+            }
+
+            httpRequest.open("GET", "localhost:8000/abc");
+            httpRequest.send();
+        }
+    </script>
 
     <!-- <script type="text/javascript" src="index.js"> -->
     <!-- <script type="text/javascript" src="hof.js"></script> -->
     <!-- <script type="text/javascript" src="exe-context.js"> -->
-
     <!-- <script type="text/javascript" src="arrow-fn.js"></script> -->
-
     <!-- <script type="text/javascript" src="arrays.js"></script> -->
     <!-- <script type="text/javascript" src="basics.js"></script> -->
-    <script type="text/javascript" src="objects.js"></script>
+    <!-- <script type="text/javascript" src="objects.js"></script> -->
+    <!-- <script type="text/javascript" src="two.js"></script>
+    <script type="text/javascript" src="one.js"></script>
+    <script type="text/javascript" src="test.js"></script> -->
     </script>
 </body>
 
