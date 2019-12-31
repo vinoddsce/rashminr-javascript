@@ -1,0 +1,17 @@
+{
+  "name": "simple-web",
+  "version": "1.0.0",
+  "description": "My first project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Vinod",
+  "license": "MIT",
+  "dependencies": {
+    "color": "^3.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.4"
+  }
+}
