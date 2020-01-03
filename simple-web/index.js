@@ -1,9 +1,3 @@
-const color = require('color')
-
-const redHexa = color({ r: 255, g: 180, b: 180 }).hex()
-
-console.log(redHexa)
-
-
-
-// console.log('My first project !!!!!! Using Scripts !!!!!!');
+let a = [1, 2, 3, 4];
+let result = a.map(n => n + 1);
+console.log("Result: ", result);

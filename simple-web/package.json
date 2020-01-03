@@ -12,6 +12,10 @@
     "color": "^3.1.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-arrow-functions": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
     "typescript": "^3.7.4"
   }
 }
